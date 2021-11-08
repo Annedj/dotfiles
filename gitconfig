@@ -37,6 +37,7 @@
 
   # Removes a file from the index
   unstage = reset HEAD --
+	recent = branch --sort=-committerdate --format=\"%(committerdate:relative)%09%(refname:short)\"
 
 [help]
   autocorrect = 1
@@ -49,3 +50,13 @@
 [user]
 	email = anne.dejoly@edhec.com
 	name = Anne de Joly
+[pull]
+	rebase = false
+[merge]
+	tool = vscode
+[mergetool "vscode"]
+	cmd = code --wait $MERGED
+[diff]
+	tool = vscode
+[difftool "vscode"]
+	cmd = code --wait --diff $LOCAL $REMOTE

@@ -1,18 +1,29 @@
 {
-  "installed_packages":
-  [
-    "A File Icon",
-    "AdvancedNewFile",
-    "All Autocomplete",
-    "Babel",
-    "Emmet",
-    "ERB Snippets",
-    "Git",
-    "Latest Migration",
-    "MagicPython",
-    "Package Control",
-    "SCSS",
-    "SublimeLinter",
-    "SublimeLinter-rubocop"
-  ]
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"A File Icon",
+		"AdvancedNewFile",
+		"All Autocomplete",
+		"Babel",
+		"BracketHighlighter",
+		"Color Highlight",
+		"CSS Extended Completions",
+		"Emmet",
+		"ERB Snippets",
+		"ESLint",
+		"Git",
+		"GitLink",
+		"Latest Migration",
+		"MagicPython",
+		"MarkdownEditing",
+		"Package Control",
+		"SCSS",
+		"SublimeLinter",
+		"SublimeLinter-eslint",
+		"SublimeLinter-rubocop"
+	]
 }
