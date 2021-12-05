@@ -8,6 +8,14 @@ alias serve='ruby -run -e httpd . -p 8000'  # Or python -m SimpleHTTPServer :)
 
 alias kitt="open https://kitt.lewagon.com/"
 
+# Heroku command for staging and production remotes
+staging() {
+  heroku run $1 -r staging
+}
+production() {
+  heroku run $1 -r production
+}
+
 # Open tickets page
 tickets() {
   if [ "$2" = 'dev' ]
