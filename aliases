@@ -239,3 +239,7 @@ alias sweep='git checkout -q master && git for-each-ref refs/heads/ "--format=%(
 
 alias bs='bin/start'
 alias ocw='overmind connect web'
+alias wagon='cd ~/code/lewagon'
+alias kitt='cd ~/code/lewagon/www'
+alias www='cd ~/code/lewagon/www'
+alias adiuvo='cd ~/code/aurel/adiuvo'
