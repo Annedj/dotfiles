@@ -6,8 +6,6 @@ alias speedtest="wget -O /dev/null http://speedtest.wdc01.softlayer.com/download
 # Quickly serve the current directory as HTTP
 alias serve='ruby -run -e httpd . -p 8000'  # Or python -m SimpleHTTPServer :)
 
-alias kitt="open https://kitt.lewagon.com/"
-
 # Heroku command for staging and production remotes
 staging() {
   heroku run $1 -r staging
@@ -200,8 +198,20 @@ dump() {
 }
 
 bs() {
-  nvm use
+  nvm use && yarn
   bin/start
+}
+
+bst() {
+  nvm use && yarn
+  overmind start -f Procfile.dev -l web,webpacker,localtunnel
+}
+
+5432() {
+  rm /usr/local/var/postgres/postmaster.pid
+  brew services stop postgresql
+  brew postgresql-upgrade-database
+  brew services start postgresql
 }
 
 # rails console
@@ -245,9 +255,16 @@ jslides() {
 # Delete squashed and merged branches
 alias sweep='git checkout -q master && git for-each-ref refs/heads/ "--format=%(refname:short)" | while read branch; do mergeBase=$(git merge-base master $branch) && [[ $(git cherry master $(git commit-tree $(git rev-parse $branch^{tree}) -p $mergeBase -m _)) == "-"* ]] && git branch -D $branch; done'
 
-alias bs='bin/start'
 alias ocw='overmind connect web'
 alias wagon='cd ~/code/lewagon'
-alias kitt='cd ~/code/lewagon/www'
+alias kitt='cd ~/code/lewagon/kitt'
 alias www='cd ~/code/lewagon/www'
+alias checkin='cd ~/code/lewagon/check-in'
 alias adiuvo='cd ~/code/aurel/adiuvo'
+alias nyarn='nvm use && yarn'
+alias prw='gh pr create -w'
+alias stash='git stash'
+alias light='rm tmp/light.2022-0* && bin/restore_light_dump'
+alias scarc='scalingo run rails c -- --nomultiline --noautocomplete'
+alias bd='bin/dev'
+alias rediscli='redis-cli flushall'

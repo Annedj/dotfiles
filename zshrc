@@ -4,8 +4,11 @@ ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="robbyrussell"
 
 # Useful oh-my-zsh plugins for Le Wagon bootcamps
-plugins=(git gitfast last-working-dir common-aliases sublime zsh-syntax-highlighting history-substring-search zsh-completions zsh-autosuggestions)
+plugins=(git gitfast last-working-dir common-aliases sublime zsh-syntax-highlighting history-substring-search zsh-completions zsh-autosuggestions zsh_codex)
 autoload -U compinit && compinit
+
+# Zsh codex bindings
+bindkey '^X' create_completion
 
 # (macOS-only) Prevent Homebrew from reporting - https://github.com/Homebrew/brew/blob/master/share/doc/homebrew/Analytics.md
 export HOMEBREW_NO_ANALYTICS=1
@@ -13,6 +16,7 @@ export HOMEBREW_NO_ANALYTICS=1
 # Actually load Oh-My-Zsh
 source "${ZSH}/oh-my-zsh.sh"
 unalias rm # No interactive rm by default (brought by plugins/common-aliases)
+# unalias lt
 
 # Load rbenv if installed (To manage your Ruby versions)
 export PATH="${HOME}/.rbenv/bin:${PATH}" # Needed for Linux/WSL
@@ -39,8 +43,15 @@ pyenv activate lewagon 2>/dev/null && echo "🐍 Loading 'lewagon' virtualenv"
 # Store your own aliases in the ~/.aliases file and load the here.
 [[ -f "$HOME/.aliases" ]] && source "$HOME/.aliases"
 
+eval $(thefuck --alias)
+
 # Encoding stuff for the terminal
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
-# export BUNDLER_EDITOR="'/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl' -a"
 export BUNDLER_EDITOR=code
+export EDITOR=code
+export GIT_MERGE_AUTOEDIT=no
+# export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
+export HOMEBREW_GITHUB_API_TOKEN=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
+export PATH="/usr/local/opt/postgresql@15/bin:$PATH"
+source ~/.zsh/completion/scalingo_complete.zsh
