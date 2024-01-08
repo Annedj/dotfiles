@@ -52,6 +52,5 @@ export BUNDLER_EDITOR=code
 export EDITOR=code
 export GIT_MERGE_AUTOEDIT=no
 # export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
-export HOMEBREW_GITHUB_API_TOKEN=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
 export PATH="/usr/local/opt/postgresql@15/bin:$PATH"
 source ~/.zsh/completion/scalingo_complete.zsh
