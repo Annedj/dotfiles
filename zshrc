@@ -51,4 +51,3 @@ export EDITOR=code
 export GIT_MERGE_AUTOEDIT=no
 # export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 export PATH="/usr/local/opt/postgresql@15/bin:$PATH"
-source ~/.zsh/completion/scalingo_complete.zsh
