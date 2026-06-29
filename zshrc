@@ -46,8 +46,22 @@ pyenv activate lewagon 2>/dev/null && echo "🐍 Loading 'lewagon' virtualenv"
 # Encoding stuff for the terminal
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
-export BUNDLER_EDITOR=code
-export EDITOR=code
+export BUNDLER_EDITOR=cursor
+export EDITOR=cursor
 export GIT_MERGE_AUTOEDIT=no
 # export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 export PATH="/usr/local/opt/postgresql@15/bin:$PATH"
+
+# Added by Windsurf
+export PATH="/Users/annedejoly/.codeium/windsurf/bin:$PATH"
+
+# pnpm
+export PNPM_HOME="/Users/annedejoly/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+
+# Created by `pipx` on 2025-03-29 14:32:39
+export PATH="$PATH:/Users/annedejoly/.local/bin"

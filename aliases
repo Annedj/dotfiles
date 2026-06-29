@@ -169,18 +169,8 @@ issues() {
   open https://www.github.com/$1/$2/issues
 }
 
-# navigate in code folder
-goto() {
-  cd ~/code/$1
-}
-
-# navigate in folder and open
-sttt() {
-  cd ~/code/$1; stt;
-}
-
 # start mongodb
-alias mongodb='$HOME/mongodb/bin/mongod --dbpath=$HOME/mongodb-data'
+# alias mongodb='$HOME/mongodb/bin/mongod --dbpath=$HOME/mongodb-data'
 
 # launch webpack-dev-server
 alias wds='webpack-dev-server'
@@ -214,35 +204,8 @@ bst() {
   brew services start postgresql
 }
 
-# rails console
-alias rc="rails c"
-
-# rails server
-alias rs="rails s"
-
-# rails db:migrate
-alias rdbm="rails db:migrate"
-
-# rails db:rollback
-alias rdbr="rails db:rollback"
-
-# rails db:seed
-alias rdbs="rails db:seed"
-
-# rails db:reset
-alias rdbrst="rails db:reset"
-
-# rails db:drop
-alias rdbd="rails db:drop"
-
-# rails db:create
-alias rdbc="rails db:create"
-
-# rails db:drop db:create db:migrate db:seed
-alias rdb="rails db:drop db:create db:migrate db:seed"
-
 # rake db:import_from_aws
-alias aws="rake db:import_from_aws && rake s3:sync_prod_bucket_to_dev_bucket"
+# alias aws="rake db:import_from_aws && rake s3:sync_prod_bucket_to_dev_bucket"
 
 # jupyter notebook
 alias jn="jupyter notebook"
@@ -255,16 +218,53 @@ jslides() {
 # Delete squashed and merged branches
 alias sweep='git checkout -q master && git for-each-ref refs/heads/ "--format=%(refname:short)" | while read branch; do mergeBase=$(git merge-base master $branch) && [[ $(git cherry master $(git commit-tree $(git rev-parse $branch^{tree}) -p $mergeBase -m _)) == "-"* ]] && git branch -D $branch; done'
 
-alias ocw='overmind connect web'
-alias wagon='cd ~/code/lewagon'
-alias kitt='cd ~/code/lewagon/kitt'
-alias www='cd ~/code/lewagon/www'
-alias checkin='cd ~/code/lewagon/check-in'
-alias adiuvo='cd ~/code/aurel/adiuvo'
+alias testlog='tail -f log/test.log'
+
+# Repos
+alias annedj='cd ~/code/Annedj'
+alias kitt='cd ~/code/Annedj/kitt'
+alias www='cd ~/code/Annedj/www'
+alias xian='cd ~/code/Annedj/xian-triangle'
+alias siguu='cd ~/code/Annedj/siguu'
+alias adiuvo='cd ~/code/adiuvo-app/adiuvo'
+alias indie='cd ~/code/indie-annedj'
+alias blissbox='cd ~/code/indie-annedj/bliss-box'
+alias curley='cd ~/code/indie-annedj/curley'
+alias wbl='cd ~/code/indie-annedj/wbl'
+alias budget='cd ~/code/indie-annedj/budget'
+alias dco='cd ~/code/indie-annedj/descarbonize'
+alias cl='cd ~/code/indie-annedj/componentlibraries/'
+alias llc='cd ~/code/indie-annedj/bestllc/'
+alias code='cursor .'
+
+# Rails
+bs() {
+  nvm use && yarn
+  bin/start
+}
 alias nyarn='nvm use && yarn'
+alias ocw='overmind connect web'
+alias rc="rails c"
+alias rs="rails s"
+alias rdbm="rails db:migrate"
+alias rdbr="rails db:rollback"
+alias rdbs="rails db:seed"
+alias rdbrst="rails db:reset"
+alias rdbd="rails db:drop"
+alias rdbc="rails db:create"
+alias rdb="rails db:drop db:create db:migrate db:seed"
+alias rcred="EDITOR=\"code --wait\" rails credentials:edit"
+alias rediscli='redis-cli flushall'
+
+# Rails production and staging console
+alias rcprod='heroku run "rails console -- --nomultiline" -r production'
+alias rcstag='heroku run "rails console -- --nomultiline" -r staging'
+
+# GitHub
 alias prw='gh pr create -w'
 alias stash='git stash'
-alias light='rm tmp/light.2022-0* && bin/restore_light_dump'
-alias scarc='scalingo run rails c -- --nomultiline --noautocomplete'
-alias bd='bin/dev'
-alias rediscli='redis-cli flushall'
+
+alias gsl='git stash list --format="%gd | %cr | %gs"'
+
+# alias light='rm tmp/light.2022-0* && bin/restore_light_dump'
+# alias scarc='scalingo run rails c -- --nomultiline --noautocomplete'
